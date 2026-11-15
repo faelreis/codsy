@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home > matches its snapshot inside a project, including the status line 1`] = `
+"            ▄ ▀▄
+           ▄ ▀▄ █
+            ▀▄██▀█▄
+              ███▀▀▀▀
+     ▄▄▄▄▄▄▄▄ ██
+ ▄▄█▀▀█████▀ ▄██
+▀▀▀ ▄▄▄▄▄▄▄▄██▀
+ ▄██▀   █  █
+        █  █▄
+       ▀▀▀  ▀▀▀
+
+Codsy helps you write operational knowledge as versioned files people and AI agents can both read.
+2 skills · 1 schemas · 6 context files
+> Start a new project
+  Add a skill
+  Check my project
+  Run evals
+  Learn the basics"
+`;
+
+exports[`Home > matches its snapshot outside a project 1`] = `
+"            ▄ ▀▄
+           ▄ ▀▄ █
+            ▀▄██▀█▄
+              ███▀▀▀▀
+     ▄▄▄▄▄▄▄▄ ██
+ ▄▄█▀▀█████▀ ▄██
+▀▀▀ ▄▄▄▄▄▄▄▄██▀
+ ▄██▀   █  █
+        █  █▄
+       ▀▀▀  ▀▀▀
+
+Codsy helps you write operational knowledge as versioned files people and AI agents can both read.
+> Start a new project
+  Add a skill
+  Check my project
+  Run evals
+  Learn the basics"
+`;

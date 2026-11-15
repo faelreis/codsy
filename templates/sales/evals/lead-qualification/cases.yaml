@@ -1,0 +1,87 @@
+skill: lead-qualification
+cases:
+  - id: large-with-budget
+    source: synthetic
+    input:
+      company_size: 120
+      annual_revenue_usd: 45000000
+      has_budget: true
+      industry: logistics
+    expected:
+      decision: sales
+  - id: small-company
+    source: synthetic
+    input:
+      company_size: 8
+      annual_revenue_usd: 900000
+      has_budget: true
+      industry: ecommerce
+    expected:
+      decision: nurture
+  - id: large-no-budget
+    source: synthetic
+    input:
+      company_size: 300
+      annual_revenue_usd: 80000000
+      has_budget: false
+      industry: manufacturing
+    expected:
+      decision: nurture
+  - id: exactly-threshold
+    source: synthetic
+    input:
+      company_size: 50
+      has_budget: true
+      industry: logistics
+    expected:
+      decision: sales
+  - id: just-below-threshold
+    source: synthetic
+    input:
+      company_size: 49
+      has_budget: true
+      industry: logistics
+    expected:
+      decision: nurture
+  - id: huge-ecommerce
+    source: synthetic
+    input:
+      company_size: 500
+      annual_revenue_usd: 200000000
+      has_budget: true
+      industry: ecommerce
+    expected:
+      decision: sales
+  - id: tiny-other-industry
+    source: synthetic
+    input:
+      company_size: 3
+      industry: other
+      has_budget: false
+    expected:
+      decision: nurture
+  - id: medium-manufacturing-with-budget
+    source: synthetic
+    input:
+      company_size: 75
+      annual_revenue_usd: 15000000
+      has_budget: true
+      industry: manufacturing
+    expected:
+      decision: sales
+  - id: medium-logistics-no-budget
+    source: synthetic
+    input:
+      company_size: 80
+      has_budget: false
+      industry: logistics
+    expected:
+      decision: nurture
+  - id: solo-founder
+    source: synthetic
+    input:
+      company_size: 1
+      has_budget: true
+      industry: ecommerce
+    expected:
+      decision: nurture

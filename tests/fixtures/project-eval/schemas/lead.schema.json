@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lead",
+  "type": "object",
+  "properties": {
+    "company_size": { "type": "integer", "description": "Number of employees." }
+  },
+  "required": ["company_size"]
+}

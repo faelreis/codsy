@@ -1,0 +1,4 @@
+eval:
+  provider: command
+  command: "node -e \"process.stdin.resume(); console.log(JSON.stringify({decision: 'nurture'}))\""
+  threshold: 0.5

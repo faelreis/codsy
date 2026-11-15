@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Good",
+  "type": "object",
+  "description": "A lead record used for qualification.",
+  "properties": {
+    "email": { "type": "string", "description": "The lead's email address." },
+    "company_size": {
+      "type": "integer",
+      "description": "Number of employees at the lead's company."
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["small", "medium", "large"],
+      "description": "Company size bucket: small (<50), medium (50-500), large (>500)."
+    }
+  },
+  "required": ["email"]
+}

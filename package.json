@@ -1,0 +1,65 @@
+{
+  "name": "codsy",
+  "version": "1.0.0",
+  "description": "Write operational knowledge as versioned files that people and AI agents can both read.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "Codsy Contributors",
+  "homepage": "https://github.com/faelreis/codsy#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faelreis/codsy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/faelreis/codsy/issues"
+  },
+  "keywords": [
+    "cli",
+    "skills",
+    "agent-skills",
+    "operational-knowledge",
+    "lint",
+    "ai-agents"
+  ],
+  "bin": {
+    "codsy": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ink": "^8.0.0",
+    "js-yaml": "^5.5.0",
+    "react": "^19.3.1"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.1",
+    "@types/react": "^19.3.0",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "ink-testing-library": "^4.0.0",
+    "prettier": "^3.10.1",
+    "tsup": "^9.0.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.0"
+  }
+}

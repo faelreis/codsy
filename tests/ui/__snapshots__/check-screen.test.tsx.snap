@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`formatRichText > matches its colorized snapshot at truecolor 1`] = `
+"[1mskills/a/SKILL.md[0m
+  [38;2;217;140;122mERROR CODSY010[0m line 4: Missing the required Purpose section.
+    [38;2;143;133;125mFix:[0m Add a '## Purpose' section.
+
+[1mschemas/lead.schema.json[0m
+  [38;2;217;179;108mWARN CODSY101[0m line 1: Property 'email' has no description.
+
+[38;2;217;140;122m1 thing to fix, 1 suggestion.[0m
+Fix the errors above, then run codsy check again.
+"
+`;
+
+exports[`formatRichText > matches its plain snapshot when color is disabled 1`] = `
+"skills/a/SKILL.md
+  ERROR CODSY010 line 4: Missing the required Purpose section.
+    Fix: Add a '## Purpose' section.
+
+schemas/lead.schema.json
+  WARN CODSY101 line 1: Property 'email' has no description.
+
+1 thing to fix, 1 suggestion.
+Fix the errors above, then run codsy check again.
+"
+`;

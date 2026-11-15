@@ -1,0 +1,14 @@
+skill: lead-qualification
+cases:
+  - id: case-1
+    source: synthetic
+    input:
+      company_size: 120
+    expected:
+      decision: sales
+  - id: case-2
+    source: synthetic
+    input:
+      company_size: 200
+    expected:
+      decision: sales

@@ -1,0 +1,16 @@
+skill: lead-qualification
+cases:
+  - id: valid-case
+    source: synthetic
+    input:
+      email: lead@example.com
+      company_size: 120
+      tier: large
+    expected:
+      decision: sales
+  - id: invalid-case
+    source: synthetic
+    input:
+      company_size: "not-a-number"
+    expected:
+      decision: nurture

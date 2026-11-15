@@ -1,0 +1,8 @@
+skill: good-skill
+cases:
+  - id: case-1
+    source: synthetic
+    input:
+      minutes_waiting: 45
+    expected:
+      urgency: urgent

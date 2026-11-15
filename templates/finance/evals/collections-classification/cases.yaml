@@ -1,0 +1,81 @@
+skill: collections-classification
+cases:
+  - id: early-reminder
+    source: synthetic
+    input:
+      days_overdue: 5
+      balance_usd: 1200
+      has_payment_plan: false
+    expected:
+      stage: reminder
+  - id: boundary-30
+    source: synthetic
+    input:
+      days_overdue: 30
+      balance_usd: 2500
+      has_payment_plan: false
+    expected:
+      stage: reminder
+  - id: boundary-31
+    source: synthetic
+    input:
+      days_overdue: 31
+      balance_usd: 2500
+      has_payment_plan: false
+    expected:
+      stage: escalation
+  - id: mid-escalation
+    source: synthetic
+    input:
+      days_overdue: 45
+      balance_usd: 5000
+      has_payment_plan: false
+    expected:
+      stage: escalation
+  - id: boundary-60
+    source: synthetic
+    input:
+      days_overdue: 60
+      balance_usd: 5000
+      has_payment_plan: false
+    expected:
+      stage: escalation
+  - id: boundary-61
+    source: synthetic
+    input:
+      days_overdue: 61
+      balance_usd: 5000
+      has_payment_plan: false
+    expected:
+      stage: final-notice
+  - id: very-overdue
+    source: synthetic
+    input:
+      days_overdue: 120
+      balance_usd: 9000
+      has_payment_plan: false
+    expected:
+      stage: final-notice
+  - id: payment-plan-despite-late
+    source: synthetic
+    input:
+      days_overdue: 90
+      balance_usd: 3000
+      has_payment_plan: true
+    expected:
+      stage: reminder
+  - id: payment-plan-early
+    source: synthetic
+    input:
+      days_overdue: 10
+      balance_usd: 800
+      has_payment_plan: true
+    expected:
+      stage: reminder
+  - id: no-balance-given
+    source: synthetic
+    input:
+      days_overdue: 40
+      has_payment_plan: false
+    expected:
+      stage: escalation

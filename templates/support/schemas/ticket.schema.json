@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ticket",
+  "description": "A fictional sample support ticket.",
+  "type": "object",
+  "properties": {
+    "channel": {
+      "type": "string",
+      "enum": ["email", "chat", "phone"],
+      "description": "chat and phone are answered live; email is answered asynchronously."
+    },
+    "minutes_waiting": {
+      "type": "integer",
+      "description": "Minutes since the ticket was created with no agent response."
+    },
+    "mentions_outage": {
+      "type": "boolean",
+      "description": "Whether the customer describes being unable to access or restore their data right now."
+    }
+  },
+  "required": ["minutes_waiting"]
+}

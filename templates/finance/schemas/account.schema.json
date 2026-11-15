@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Account",
+  "description": "A fictional sample overdue invoice account.",
+  "type": "object",
+  "properties": {
+    "days_overdue": {
+      "type": "integer",
+      "description": "Number of days past the invoice due date."
+    },
+    "balance_usd": {
+      "type": "number",
+      "description": "The outstanding balance in US dollars."
+    },
+    "has_payment_plan": {
+      "type": "boolean",
+      "description": "Whether the customer already agreed to a structured payment plan."
+    }
+  },
+  "required": ["days_overdue"]
+}

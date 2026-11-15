@@ -1,0 +1,104 @@
+name: 'Codsy Check'
+description: 'Lint Codsy operational knowledge files and report the results on the pull request.'
+branding:
+  icon: 'check-circle'
+  color: 'yellow'
+
+inputs:
+  strict:
+    description: 'Fail on warnings as well as errors.'
+    required: false
+    default: 'false'
+  comment:
+    description: 'Post or update a single pull request comment with the check results.'
+    required: false
+    default: 'true'
+  working-directory:
+    description: 'Directory containing codsy.config.yaml.'
+    required: false
+    default: '.'
+
+outputs:
+  conclusion:
+    description: '"success" if codsy check passed, "failure" otherwise.'
+    value: ${{ steps.check.outputs.conclusion }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v7
+      with:
+        node-version: '22'
+
+    - name: Install codsy
+      shell: bash
+      run: npm install --global codsy
+
+    - name: Run codsy check
+      id: check
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: |
+        STRICT_FLAG=""
+        if [ "${{ inputs.strict }}" = "true" ]; then
+          STRICT_FLAG="--strict"
+        fi
+
+        set +e
+        codsy check $STRICT_FLAG --format sarif > codsy-results.sarif
+        codsy check $STRICT_FLAG --format pretty --plain > codsy-results.txt
+        EXIT_CODE=$?
+        set -e
+
+        if [ "$EXIT_CODE" = "0" ]; then
+          echo "conclusion=success" >> "$GITHUB_OUTPUT"
+        else
+          echo "conclusion=failure" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: Upload SARIF
+      uses: github/codeql-action/upload-sarif@v4
+      with:
+        sarif_file: ${{ inputs.working-directory }}/codsy-results.sarif
+
+    - name: Post or update the pull request comment
+      if: inputs.comment == 'true' && github.event_name == 'pull_request'
+      uses: actions/github-script@v9
+      with:
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+
+          const resultsPath = path.join('${{ inputs.working-directory }}', 'codsy-results.txt');
+          const text = fs.readFileSync(resultsPath, 'utf8');
+          const marker = '<!-- codsy-check-comment -->';
+          const body = `${marker}\n## Codsy check\n\n\`\`\`\n${text}\n\`\`\``;
+
+          const { data: comments } = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+          });
+
+          const existing = comments.find((c) => c.body && c.body.includes(marker));
+          if (existing) {
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: existing.id,
+              body,
+            });
+          } else {
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });
+          }
+
+    - name: Fail if codsy check found errors
+      if: steps.check.outputs.conclusion == 'failure'
+      shell: bash
+      run: exit 1

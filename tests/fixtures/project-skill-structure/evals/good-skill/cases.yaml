@@ -1,0 +1,16 @@
+skill: good-skill
+cases:
+  - id: case-1
+    source: synthetic
+    input:
+      subject: Production outage
+      body: Our production database is down.
+    expected:
+      urgency: urgent
+  - id: case-2
+    source: synthetic
+    input:
+      subject: Password reset
+      body: How do I reset my password?
+    expected:
+      urgency: normal

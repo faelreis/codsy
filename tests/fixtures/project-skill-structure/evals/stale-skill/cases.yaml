@@ -1,0 +1,8 @@
+skill: stale-skill
+cases:
+  - id: case-1
+    source: synthetic
+    input:
+      foo: bar
+    expected:
+      result: ok

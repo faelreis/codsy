@@ -1,0 +1,81 @@
+skill: ticket-triage
+cases:
+  - id: outage-email
+    source: synthetic
+    input:
+      channel: email
+      minutes_waiting: 5
+      mentions_outage: true
+    expected:
+      urgency: urgent
+  - id: long-wait-chat
+    source: synthetic
+    input:
+      channel: chat
+      minutes_waiting: 45
+      mentions_outage: false
+    expected:
+      urgency: urgent
+  - id: quick-phone-no-outage
+    source: synthetic
+    input:
+      channel: phone
+      minutes_waiting: 2
+      mentions_outage: false
+    expected:
+      urgency: normal
+  - id: borderline-exactly-30
+    source: synthetic
+    input:
+      channel: email
+      minutes_waiting: 30
+      mentions_outage: false
+    expected:
+      urgency: urgent
+  - id: just-under-threshold
+    source: synthetic
+    input:
+      channel: email
+      minutes_waiting: 29
+      mentions_outage: false
+    expected:
+      urgency: normal
+  - id: outage-and-long-wait
+    source: synthetic
+    input:
+      channel: chat
+      minutes_waiting: 60
+      mentions_outage: true
+    expected:
+      urgency: urgent
+  - id: brand-new-email
+    source: synthetic
+    input:
+      channel: email
+      minutes_waiting: 0
+      mentions_outage: false
+    expected:
+      urgency: normal
+  - id: outage-phone
+    source: synthetic
+    input:
+      channel: phone
+      minutes_waiting: 1
+      mentions_outage: true
+    expected:
+      urgency: urgent
+  - id: moderate-wait-chat
+    source: synthetic
+    input:
+      channel: chat
+      minutes_waiting: 15
+      mentions_outage: false
+    expected:
+      urgency: normal
+  - id: no-channel-given
+    source: synthetic
+    input:
+      minutes_waiting: 40
+      mentions_outage: false
+    expected:
+      urgency: urgent

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lead",
+  "description": "A fictional sample inbound lead captured from the website form.",
+  "type": "object",
+  "properties": {
+    "company_size": {
+      "type": "integer",
+      "description": "Number of employees at the lead's company."
+    },
+    "annual_revenue_usd": {
+      "type": "number",
+      "description": "The lead's self-reported annual revenue in US dollars."
+    },
+    "has_budget": {
+      "type": "boolean",
+      "description": "Whether the lead confirmed they have budget approved for this purchase."
+    },
+    "industry": {
+      "type": "string",
+      "enum": ["logistics", "ecommerce", "manufacturing", "other"],
+      "description": "logistics and ecommerce run warehouses at scale; manufacturing sometimes does; other rarely does."
+    }
+  },
+  "required": ["company_size"]
+}
