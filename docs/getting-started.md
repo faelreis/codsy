@@ -5,7 +5,7 @@
 Codsy is a Node.js CLI. You need Node.js 22.12 or newer.
 
 ```bash
-npx codsy init
+npx @codsy/cli init
 ```
 
 `npx` runs the latest version without a permanent install. To install it once for

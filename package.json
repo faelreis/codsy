@@ -1,5 +1,5 @@
 {
-  "name": "codsy",
+  "name": "@codsy/cli",
   "version": "1.0.0",
   "description": "Write operational knowledge as versioned files that people and AI agents can both read.",
   "type": "module",
@@ -29,6 +29,9 @@
     "!dist/**/*.map",
     "templates"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=22.12.0"
   },

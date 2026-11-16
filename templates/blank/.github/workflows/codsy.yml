@@ -26,7 +26,7 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
-      - run: npm install -g codsy
+      - run: npm install -g @codsy/cli
       - run: codsy eval --threshold 0.8
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

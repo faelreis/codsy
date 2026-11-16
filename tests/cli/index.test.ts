@@ -22,7 +22,14 @@ describe('isDirectInvocation', () => {
   const moduleUrl = pathToFileURL(realPath).href;
 
   it('matches when the invoked path resolves to the module file, such as through an npm link symlink', () => {
-    const symlinkPath = path.resolve('global-npm', 'node_modules', 'codsy', 'dist', 'cli.js');
+    const symlinkPath = path.resolve(
+      'global-npm',
+      'node_modules',
+      '@codsy',
+      'cli',
+      'dist',
+      'cli.js',
+    );
     const resolveRealPath = (candidate: string): string =>
       candidate === symlinkPath ? realPath : candidate;
 

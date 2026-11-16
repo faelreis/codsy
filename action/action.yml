@@ -33,7 +33,7 @@ runs:
 
     - name: Install codsy
       shell: bash
-      run: npm install --global codsy
+      run: npm install --global @codsy/cli
 
     - name: Run codsy check
       id: check

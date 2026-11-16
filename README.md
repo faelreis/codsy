@@ -68,12 +68,12 @@ You only need [Node.js](https://nodejs.org) 22.12 or newer. Check with `node --v
 ### Step 1. Create a project
 
 ```bash
-npx codsy init my-project --template sales
+npx @codsy/cli init my-project --template sales
 cd my-project
 ```
 
 This creates a folder with a working example. Other templates: `blank`, `support`,
-`finance`. Run `npx codsy init` with no options to be asked step by step instead.
+`finance`. Run `npx @codsy/cli init` with no options to be asked step by step instead.
 
 ### Step 2. Look around
 
@@ -91,7 +91,7 @@ Open `skills/lead-qualification/SKILL.md` to see a complete example.
 ### Step 3. Check it
 
 ```bash
-npx codsy check
+npx @codsy/cli check
 ```
 
 Codsy reads every file and reports problems such as a missing section, a vague rule, or a
@@ -100,13 +100,13 @@ password pasted by mistake. Each problem shows the file, the line, and the fix.
 Don't understand a problem? Ask Codsy to explain it by its code:
 
 ```bash
-npx codsy explain CODSY010
+npx @codsy/cli explain CODSY010
 ```
 
 ### Step 4. Add your own rule
 
 ```bash
-npx codsy new skill
+npx @codsy/cli new skill
 ```
 
 Codsy asks a few plain questions (what is decided, when, the rule, the exceptions, two
@@ -123,13 +123,13 @@ This step calls an AI provider, so it needs an API key and may cost a few cents:
 
 ```bash
 export ANTHROPIC_API_KEY=your-key-here
-npx codsy eval
+npx @codsy/cli eval
 ```
 
 Want to see what would be sent, without calling anything or spending money?
 
 ```bash
-npx codsy eval --dry-run
+npx @codsy/cli eval --dry-run
 ```
 
 The provider and model are set in `codsy.config.yaml`. See
