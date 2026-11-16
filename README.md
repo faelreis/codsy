@@ -4,6 +4,12 @@
   Write down how your company makes decisions, in simple files that people and AI agents can both read.
 </p>
 
+<p align="center">
+  <a href="https://codsy.vercel.app/">Website</a> ·
+  <a href="https://www.npmjs.com/package/@codsy/cli">npm</a> ·
+  <a href="docs/getting-started.md">Getting started</a>
+</p>
+
 ## What is Codsy, in one minute
 
 Every company has rules that live in someone's head: "big customers go to a senior rep",
@@ -186,7 +192,7 @@ More options: [GitHub Action](docs/github-action.md).
 To install the CLI once instead of using `npx` every time:
 
 ```bash
-npm install --global codsy
+npm install --global @codsy/cli
 ```
 
 ## All commands

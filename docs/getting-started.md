@@ -12,7 +12,7 @@ npx @codsy/cli init
 repeated use:
 
 ```bash
-npm install --global codsy
+npm install --global @codsy/cli
 codsy init
 ```
 
