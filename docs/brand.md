@@ -32,7 +32,7 @@ emojis anywhere — in the CLI, in commit messages, or in these docs.
 `assets/brand/logo-codsy-horizontal.svg` and `assets/brand/logo-codsy-symbol.svg`
 are the two base logo marks, both rendered in sand with no background fill — they're
 meant to be placed on whatever background the surface already has.
-`assets/brand/codsy-hero.png` is the wide banner with a charcoal background baked in,
+`assets/brand/codsy-hero-v2.png` is the wide banner with a charcoal background baked in,
 used specifically for the README hero.
 
 ## Mascot source of truth

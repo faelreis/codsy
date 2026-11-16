@@ -1,4 +1,4 @@
-<img src="assets/brand/codsy-hero.png" alt="Codsy" width="100%">
+<img src="assets/brand/codsy-hero-v2.png" alt="Codsy" width="100%">
 
 <p align="center">
   Write down how your company makes decisions, in simple files that people and AI agents can both read.
